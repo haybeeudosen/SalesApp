@@ -60,7 +60,10 @@ class CategoryController extends Controller
     {
         $category = CategoryModel::find($id);
 
-        return view('category/show' , ['category ' => $category]);
+        // dd($category);
+
+        // return view('category/show' , compact('category'));
+        return view('category/show' , ['category' => $category]);
     }
 
     /**
@@ -72,7 +75,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = CategoryModel::find($id);
-        return view('category/edit' , ['category ' => $category]);
+        return view('category/edit' , ['category' => $category]);
     }
 
 

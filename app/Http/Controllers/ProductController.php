@@ -27,16 +27,15 @@ class ProductController extends Controller
     public function create()
     {
         // dd('hfhfgvhj');
-    //     $product = ProductModel::get();
-    //     $categories = CategoryModel::pluck('category_name','category_name')->all();
-    //     return view('product/create',compact('product','categories'));
+        $categories = CategoryModel::pluck('category_name')->all();
+        return view('product/create',compact('categories'));
 
-    // }
-        // $product = productModel::with(['category_models', 'supplier_models', 'brand_models'])->get();
-        $categories = CategoryModel::all();
-        // dd($product);
-        return view('product/create', ['categories' => $categories]);
     }
+        // $product = productModel::with(['category_models', 'supplier_models', 'brand_models'])->get();
+        // $categories = CategoryModel::all();
+        // dd($categories);
+        // return view('product/create', ['categories' => $categories]);
+    // }
 
     /**
      * Store a newly created resource in storage.
