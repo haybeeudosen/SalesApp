@@ -7,7 +7,7 @@
                 <h2>Suppliers Management</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('supplier.create') }}"> Create New Brand</a>
+                <a class="btn btn-success" href="{{ route('supplier.create') }}"> Create New Supplier</a>
             </div>
         </div>
     </div>

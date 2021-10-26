@@ -102,12 +102,12 @@ class SupplierController extends Controller
 
 
         $supplier = SupplierModel::find($id);
-        $supplier->update($supplier);
         $supplier->supplier_name = $request->input('supplier_name');
         $supplier->address = $request->input('address');
         $supplier->phone_number = $request->input('phone_number');
         $supplier->email = $request->input('email');
         $supplier->organisation_name = $request->input('organisation_name');
+        $supplier->update($request->all());
         return redirect('supplier/index');
 
 

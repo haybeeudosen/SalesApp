@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BrandModel;
-use App\Models\CategoryModel;
 
 class BrandController extends Controller
 {
@@ -77,7 +76,7 @@ class BrandController extends Controller
     {
         $brand = BrandModel::find($id);
 
-        return view('brand/show' , ['brand ' => $brand]);
+        return view('brand/show' , ['brand'=>$brand]);
     }
 
     /**
@@ -89,7 +88,7 @@ class BrandController extends Controller
     public function edit($id)
     {
         $brand = BrandModel::find($id);
-        return view('brand/edit' , ['brand ' => $brand]);
+        return view('brand/edit' , ['brand' => $brand]);
     }
 
 
@@ -106,9 +105,9 @@ class BrandController extends Controller
             'brand_name'=>'required',
 
         ]);
-        $brand = BrandModel::find($id);
-        $brand->update($brand);
+        $brand=BrandModel::find($id);
         $brand->brand_name = $request->input('brand_name');
+        $brand->update($request->all());
         return redirect('brand/index');
     }
 

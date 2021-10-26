@@ -93,8 +93,8 @@ class CategoryController extends Controller
 
         ]);
         $category = CategoryModel::find($id);
-        $category->update($category);
         $category->category_name = $request->input('category_name');
+        $category->update($request->all());
         return redirect('category/index');
     }
 

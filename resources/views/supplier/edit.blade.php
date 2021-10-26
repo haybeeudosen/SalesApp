@@ -52,7 +52,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Email:</strong>
-                        {!! Form::text('email', null, array('placeholder' => 'Name','email' => 'form-control')) !!}
+                        {!! Form::text('email', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">

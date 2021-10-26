@@ -20,7 +20,7 @@
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li>{{ $error}}</li>
             @endforeach
             </ul>
         </div>
@@ -37,10 +37,12 @@
                         {!! Form::text('category_name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+
+                {{-- <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                </div> --}}
             </div>
+            {!! Form::submit('submit', ['class' => 'btn btn-primary']) !!}
 
         {!! Form::close() !!}
 

@@ -32,8 +32,8 @@ Route::get('/brand/create', [BrandController::class,'create'])->name('brand.crea
 Route::get('/brand/edit/{id}', [BrandController::class,'edit'])->name('brand.edit');
 Route::get('/brand/show/{id}', [BrandController::class,'show'])->name('brand.show');
 Route::post('/brand/store', [BrandController::class,'store'])->name('brand.store');
-Route::post('/brand/update', [BrandController::class,'update'])->name('brand.update');
-Route::delete('/brand/delete/{id}', [BrandController::class,'delete'])->name('brand.destroy');
+Route::patch('/brand/update/{id}', [BrandController::class,'update'])->name('brand.update');
+Route::delete('/brand/delete/{id}', [BrandController::class,'destroy'])->name('brand.destroy');
 
 
 
@@ -43,8 +43,8 @@ Route::get('/category/create', [CategoryController::class,'create'])->name('cate
 Route::get('/category/edit/{id}', [CategoryController::class,'edit'])->name('category.edit');
 Route::get('/category/show/{id}', [CategoryController::class,'show'])->name('category.show');
 Route::post('/category/store', [CategoryController::class,'store'])->name('category.store');
-Route::post('/category/update', [CategoryController::class,'update'])->name('category.updaet');
-Route::delete('/category/delete/{id}', [CategoryController::class,'delete'])->name('category.destroy');
+Route::patch('/category/update/{id}', [CategoryController::class,'update'])->name('category.update');
+Route::delete('/category/delete/{id}', [CategoryController::class,'destroy'])->name('category.destroy');
 
 
 
@@ -54,8 +54,8 @@ Route::get('/supplier/create', [SupplierController::class,'create'])->name('supp
 Route::get('/supplier/edit/{id}', [SupplierController::class,'edit'])->name('supplier.edit');
 Route::get('/supplier/show/{id}', [SupplierController::class,'show'])->name('supplier.show');
 Route::post('/supplier/store', [SupplierController::class,'store'])->name('supplier.store');
-Route::post('/supplier/update', [SupplierController::class,'update'])->name('supplier.update');
-Route::delete('/supplier/delete/{id}', [SupplierController::class,'delete'])->name('supplier.destroy');
+Route::patch('/supplier/update/{id}', [SupplierController::class,'update'])->name('supplier.update');
+Route::delete('/supplier/delete/{id}', [SupplierController::class,'destroy'])->name('supplier.destroy');
 
 
 // product routes
@@ -64,7 +64,7 @@ Route::get('/product/create', [ProductController::class,'create'])->name('produc
 Route::get('/product/edit/{id}', [ProductController::class,'edit'])->name('product.edit');
 Route::get('/product/show/{id}', [ProductController::class,'show'])->name('product.show');
 Route::post('/product/store', [ProductController::class,'store'])->name('product.store');
-Route::post('/product/update', [ProductController::class,'update'])->name('product.update');
-Route::delete('/product/delete/{id}', [ProductController::class,'delete'])->name('product.destroy');
+Route::post('/product/update/{id}', [ProductController::class,'update'])->name('product.update');
+Route::delete('/product/delete/{id}', [ProductController::class,'destroy'])->name('product.destroy');
 
 

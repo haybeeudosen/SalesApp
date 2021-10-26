@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BrandModel;
 use App\Models\CategoryModel;
+use App\Models\SupplierModel;
 use App\Models\ProductModel;
 use Illuminate\Http\Request;
 
@@ -27,15 +29,12 @@ class ProductController extends Controller
     public function create()
     {
         // dd('hfhfgvhj');
+        $brands = BrandModel::pluck('brand_name')->all();
         $categories = CategoryModel::pluck('category_name')->all();
-        return view('product/create',compact('categories'));
+        $suppliers = SupplierModel::pluck('supplier_name')->all();
+        return view('product/create',['categories' => $categories, 'brands' => $brands, 'suppliers' => $suppliers]);
 
     }
-        // $product = productModel::with(['category_models', 'supplier_models', 'brand_models'])->get();
-        // $categories = CategoryModel::all();
-        // dd($categories);
-        // return view('product/create', ['categories' => $categories]);
-    // }
 
     /**
      * Store a newly created resource in storage.

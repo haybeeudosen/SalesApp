@@ -41,27 +41,42 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Role:</strong>
+                    <strong>Brand:</strong>
+                    {!! Form::select('brands[]', $brands,[], array('class' => 'form-control','multiple')) !!}
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Category:</strong>
                     {!! Form::select('categories[]', $categories,[], array('class' => 'form-control','multiple')) !!}
                 </div>
             </div>
-            {{-- <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Email:</strong>
-                    {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
-                </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Phone number:</strong>
-                    {!! Form::number('phone_number', null, array('placeholder' => 'Phone number','class' => 'form-control')) !!}
+                    <strong>Supplier:</strong>
+                    {!! Form::select('suppliers[]', $suppliers,[], array('class' => 'form-control','multiple')) !!}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Organisation Name:</strong>
-                    {!! Form::text('organisation_name', null, array('placeholder' => 'Organisation Name','class' => 'form-control')) !!}
+                    <strong>Price:</strong>
+                    {!! Form::number('price', null, array('placeholder' => 'Price','class' => 'form-control')) !!}
                 </div>
-            </div> --}}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Quantity:</strong>
+                    {!! Form::text('quantity', null, array('placeholder' => 'Quantity','class' => 'form-control')) !!}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Description:</strong>
+                    {!! Form::text('description', null, array('placeholder' => 'Description','class' => 'form-control')) !!}
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
