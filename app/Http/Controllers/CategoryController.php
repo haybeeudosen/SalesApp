@@ -59,10 +59,6 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = CategoryModel::find($id);
-
-        // dd($category);
-
-        // return view('category/show' , compact('category'));
         return view('category/show' , ['category' => $category]);
     }
 

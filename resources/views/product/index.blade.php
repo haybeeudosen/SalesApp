@@ -36,16 +36,16 @@
                 <tr>
                     <td>{{ ++$i }}</td>
                     <td>{{ $product->product_name }}</td>
-                    <td>{{ $product->category_name }}</td>
-                    <td>{{ $product->brand_name }}</td>
-                    <td>{{ $product->supplier_name }}</td>
+                    <td>{{ $product->category->category_name }}</td>
+                    <td>{{ $product->brand->brand_name }}</td>
+                    <td>{{ $product->supplier->supplier_name }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->quantity }}</td>
                     <td>{{ $product->description }}</td>
                     <td>
-                    <a class="btn btn-info" href="{{ route('product.show',$product->id,$category->id,$brand->id, $supplier->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('product.edit',$product->id,$category->id,$brand->id, $supplier->id) }}">Edit</a>
-                        {!! Form::open(['method' => 'DELETE','route' => ['product.destroy', $product->id,$category->id,$brand->id, $supplier->id],'style'=>'display:inline']) !!}
+                    <a class="btn btn-info" href="{{ route('product.show',$product->id ) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('product.edit',$product->id) }}">Edit</a>
+                        {!! Form::open(['method' => 'DELETE','route' => ['product.destroy',$product->id],'style'=>'display:inline']) !!}
                             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                         {!! Form::close() !!}
                     </td>

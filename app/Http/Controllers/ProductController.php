@@ -17,8 +17,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = ProductModel::with(['category_models', 'supplier_models', 'brand_models'])->get();
-        return view('product/index',['products' => $products ])->with('i');
+        // $products = ProductModel::with(['category_models', 'supplier_models', 'brand_models'])->get();
+        $brands = BrandModel::all();
+        $categories = CategoryModel::all();
+        $suppliers = SupplierModel::all();
+        $products = ProductModel::all();
+        return view('product/index',['products' => $products, 'brands' => $brands, 'categories' => $categories,'suppliers' => $suppliers ])->with('i');
     }
 
     /**
@@ -29,9 +33,13 @@ class ProductController extends Controller
     public function create()
     {
         // dd('hfhfgvhj');
-        $brands = BrandModel::pluck('brand_name')->all();
-        $categories = CategoryModel::pluck('category_name')->all();
-        $suppliers = SupplierModel::pluck('supplier_name')->all();
+        // $brands = BrandModel::pluck('brand_name')->all();
+        // $categories = CategoryModel::pluck('category_name')->all();
+        // $suppliers = SupplierModel::pluck('supplier_name')->all();
+
+        $brands = BrandModel::all();
+        $categories = CategoryModel::all();
+        $suppliers = SupplierModel::all();
         return view('product/create',['categories' => $categories, 'brands' => $brands, 'suppliers' => $suppliers]);
 
     }
@@ -49,8 +57,8 @@ class ProductController extends Controller
             'category_id' => 'required|integer',
             'brand_id' => 'required|integer',
             'supplier_id' => 'required|integer',
-            'quantity' => 'required|integer',
-            'price' => 'required|integer',
+            'quantity' => 'required',
+            'price' => 'required',
             'description' => 'required|string',
         ]);
 
@@ -78,9 +86,11 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = productModel::with(['category_models', 'supplier_models', 'brand_models'])->find($id);
-        return view('product/show', ['product' => $product]);
-
+        $brand= BrandModel::find($id);
+        $category= CategoryModel::find($id);
+        $supplier= SupplierModel::find($id);
+        $product= ProductModel::find($id);
+        return view('product/show',['category' => $category, 'brand' => $brand,'product' => $product, 'supplier' => $supplier]);
 
     }
 
@@ -92,8 +102,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = productModel::with(['category_models', 'supplier_models', 'brand_models'])->find($id);
-        return view('product/edit', ['product' => $product]);
+        $brands= BrandModel::find($id);
+        $categories = CategoryModel::find($id);
+        $suppliers= SupplierModel::find($id);
+        $product = productModel::find($id);
+        return view('product/edit', ['categories' => $categories, 'brands' => $brands,'product' => $product, 'suppliers' => $suppliers]);
 
     }
 
@@ -111,14 +124,14 @@ class ProductController extends Controller
             'category_id' => 'required|integer',
             'brand_id' => 'required|integer',
             'supplier_id' => 'required|integer',
-            'quantity' => 'required|integer',
-            'price' => 'required|integer',
+            'quantity' => 'required',
+            'price' => 'required',
             'description' => 'required|string',
 
         ]);
 
 
-        $product = productModel::with(['category_models', 'supplier_models', 'brand_models'])->find($id);
+        $product = productModel::find($id);
         $product->product_name = $request->input('product_name');
         $product->category_id = $request->input('category_id');
         $product->brand_id = $request->input('brand_id');
@@ -126,6 +139,7 @@ class ProductController extends Controller
         $product->quantity = $request->input('quantity');
         $product->price = $request->input('price');
         $product->description = $request->input('description');
+        $product->update($request->all());
         return redirect('product/index');
 
 
@@ -139,7 +153,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = productModel::with(['category_models', 'supplier_models', 'brand_models'])->find($id);
+        $product = productModel::find($id);
         $product->delete();
         return redirect('product/index');
 

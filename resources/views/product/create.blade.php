@@ -34,29 +34,41 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
+                    <strong>Product Name:</strong>
                     {!! Form::text('product_name', null, array('placeholder' => 'product Name','class' => 'form-control')) !!}
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Brand:</strong>
-                    {!! Form::select('brands[]', $brands,[], array('class' => 'form-control','multiple')) !!}
+                <div class="form-group form-control">
+                    <label for="brand_id">Brand</label>
+                    <select name="brand_id" id="brand_id">
+                        @foreach ($brands as $brand)
+                            <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Category:</strong>
-                    {!! Form::select('categories[]', $categories,[], array('class' => 'form-control','multiple')) !!}
+                <div class="form-group form-control">
+                    <label for="category_id">Category</label>
+                    <select name="category_id" id="category_id">
+                        @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->category_name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Supplier:</strong>
-                    {!! Form::select('suppliers[]', $suppliers,[], array('class' => 'form-control','multiple')) !!}
+                <div class="form-group form-control">
+                    <label for="supplier_id">Supplier</label>
+                    <select name="supplier_id" id="supplier_id">
+                        @foreach ($suppliers as $supplier)
+                            <option value="{{$supplier->id}}">{{$supplier->supplier_name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
