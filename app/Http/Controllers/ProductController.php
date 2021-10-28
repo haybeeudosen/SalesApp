@@ -102,9 +102,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $brands= BrandModel::find($id);
-        $categories = CategoryModel::find($id);
-        $suppliers= SupplierModel::find($id);
+        $brands= BrandModel::all();
+        $categories = CategoryModel::all();
+        $suppliers= SupplierModel::all();
         $product = productModel::find($id);
         return view('product/edit', ['categories' => $categories, 'brands' => $brands,'product' => $product, 'suppliers' => $suppliers]);
 

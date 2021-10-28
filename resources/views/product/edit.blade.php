@@ -43,9 +43,9 @@
                         <label for="brand_id">Brand:</label>
                         <select name="brand_id" id="brand_id">
 
-                             {{-- @foreach ($brands as $brand) --}}
-                                <option value="{{$product->brand->id}}">{{$product->brand->brand_name}}</option>
-                            {{-- @endforeach --}}
+                             @foreach ($brands as $brand)
+                                <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -55,9 +55,9 @@
                         <label for="category_id">Category:</label>
                         <select name="category_id" id="category_id">
 
-                            {{-- {{-- @foreach ($categories as $category) --}}
-                                <option value="{{$product->category->id}}">{{$product->category->category_name}}</option>
-                            {{-- @endforeach --}}
+                            @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->category_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -67,9 +67,9 @@
                         <label for="supplier_id">Supplier:</label>
                         <select name="supplier_id" id="supplier_id">
 
-                            {{-- {{-- @foreach ($suppliers as $supplier) --}}
-                                <option value="{{$product->supplier->id}}">{{$product->supplier->supplier_name}}</option>
-                            {{-- @endforeach --}}
+                            @foreach ($suppliers as $supplier)
+                                <option value="{{$supplier->id}}">{{$supplier->supplier_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
