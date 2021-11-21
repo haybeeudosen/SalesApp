@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\BrandModel;
 
-class BrandController extends Controller
+class PurchaseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +13,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        // dd('hello');
-        $brands = BrandModel::get();
-        return view('brand/index',['brands' => $brands])->with('i');
-
+        //
     }
 
     /**
@@ -27,9 +23,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        $brand = BrandModel::all();
-        return view('brand/create', ['brand' => $brand]);
-
+        //
     }
 
     /**
@@ -40,15 +34,7 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'brand_name' => 'required',
-        ]);
-
-        $brand = new BrandModel();
-        $brand->brand_name = $request->input('brand_name');
-        $brand->save();
-        return redirect('brand/index');
-
+        //
     }
 
     /**
@@ -59,8 +45,7 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        $brand = BrandModel::find($id);
-        return view('brand/show' , ['brand'=>$brand]);
+        //
     }
 
     /**
@@ -71,10 +56,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $brand = BrandModel::find($id);
-        return view('brand/edit' , ['brand' => $brand]);
+        //
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -85,14 +68,7 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'brand_name'=>'required',
-
-        ]);
-        $brand=BrandModel::find($id);
-        $brand->brand_name = $request->input('brand_name');
-        $brand->update($request->all());
-        return redirect('brand/index');
+        //
     }
 
     /**
@@ -103,8 +79,6 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        $brand = BrandModel::find($id);
-        $brand->delete();
-        return redirect('brand/index');
+        //
     }
 }

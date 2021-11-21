@@ -5,6 +5,10 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -67,4 +71,23 @@ Route::post('/product/store', [ProductController::class,'store'])->name('product
 Route::patch('/product/update/{id}', [ProductController::class,'update'])->name('product.update');
 Route::delete('/product/delete/{id}', [ProductController::class,'destroy'])->name('product.destroy');
 
+// user routes
+
+Route::get('/user/index', [UserController::class,'index'])->name('user.index');
+Route::post('/user/store', [UserController::class,'store'])->name('user.store');
+Route::post('/user/update/{id}', [userController::class,'update'])->name('user.update');
+Route::delete('/user/delete/{id}', [UserController::class,'destroy'])->name('user.destroy');
+
+
+// role routes
+Route::get('/role/index', [RoleController::class,'index'])->name('role.index');
+Route::post('/role/store', [RoleController::class,'store'])->name('role.store');
+Route::post('/role/update/{id}', [RoleController::class,'update'])->name('role.update');
+Route::delete('/role/delete/{id}', [RoleController::class,'destroy'])->name('role.destroy');
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
