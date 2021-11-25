@@ -18,6 +18,9 @@
         <li>
             <a href="{{route('role.index')}}"><i class="fa fa-truck fa-lg"></i> Role</a>
         </li>
+        <li>
+            <a href="{{route('order.index')}}"><i class="fa fa-truck fa-lg"></i> Order</a>
+        </li>
     </ul>
 </nav>
 

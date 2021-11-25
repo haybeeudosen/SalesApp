@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\OrderController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -84,6 +85,10 @@ Route::get('/role/index', [RoleController::class,'index'])->name('role.index');
 Route::post('/role/store', [RoleController::class,'store'])->name('role.store');
 Route::post('/role/update/{id}', [RoleController::class,'update'])->name('role.update');
 Route::delete('/role/delete/{id}', [RoleController::class,'destroy'])->name('role.destroy');
+
+// order routes
+Route::get('/order/index', [OrderController::class,'index'])->name('order.index');
+
 
 
 
